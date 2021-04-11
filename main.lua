@@ -2,7 +2,14 @@ if love.keyboard.isDown("escape") == true then
     love.event.quit()
 end
 
+
+
 Menu = function ()
+    src1 = love.audio.newSource("Fluffing duck.mp3", "stream")
+    src1:stop()
+    src1 = love.audio.newSource("Fluffing duck.mp3", "stream")
+    scr1Loop = src1:setLooping(true)
+    src1:play()
 
     love.load = function ()
         love.math.setRandomSeed(love.timer.getTime())
@@ -42,6 +49,12 @@ Menu()
 
 
 Rules = function ()
+    src1:stop()
+    src1 = love.audio.newSource("Monkeys.mp3", "stream")
+    src1:stop()
+    src1 = love.audio.newSource("Monkeys.mp3", "stream")
+    scr1Loop = src1:setLooping(true)
+    src1:play()
 
     love.draw = function ()
         love.graphics.setColor(1, 0, 0)
@@ -145,6 +158,12 @@ end
     end
 
     Endgame = function ()
+    src1 = love.audio.newSource("Hitman.mp3", "stream")
+    src1:stop()
+    src1 = love.audio.newSource("Hitman.mp3", "stream")
+    scr1Loop = src1:setLooping(true)
+    src1:play()
+
     if Sp > 21 then 
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
