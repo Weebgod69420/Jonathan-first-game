@@ -1,36 +1,74 @@
 
 
-love.load = function ()
-    love.math.setRandomSeed(love.timer.getTime())
+
+Menu = function ()
+
+    love.load = function ()
+        love.math.setRandomSeed(love.timer.getTime())
+    end
+    
+    love.draw = function()
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
+        love.graphics.print("menu:", 100, 150)
+        love.graphics.print("PLAY", 100, 180)
+        love.graphics.print("RULES", 100, 200)
+        love.graphics.print("END", 100, 220)
+    
+    end
+    
+    love.mousepressed = function (x, y)
+    
+        if x > 100 and x < 150
+        and y > 200 and y < 230 then
+            Rules()
+        end
+    
+        if x > 100 and x < 150
+        and y > 180 and y < 200 then
+            PLAY()
+        end
+    
+        if x > 100 and x < 150
+        and y > 220 and y < 250 then
+            END()
+        end
+    end
 end
 
-love.draw = function()
-    love.graphics.setColor(1, 0, 0)
-    love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
-    love.graphics.print("menu:", 100, 150)
-    love.graphics.print("PLAY", 100, 180)
-    love.graphics.print("RULES", 100, 200)
-    love.graphics.print("END", 100, 220)
+Menu()
 
-end
+-- love.load = function ()
+--     love.math.setRandomSeed(love.timer.getTime())
+-- end
 
-love.mousepressed = function (x, y)
+-- love.draw = function()
+--     love.graphics.setColor(1, 0, 0)
+--     love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
+--     love.graphics.print("menu:", 100, 150)
+--     love.graphics.print("PLAY", 100, 180)
+--     love.graphics.print("RULES", 100, 200)
+--     love.graphics.print("END", 100, 220)
 
-    if x > 100 and x < 150
-    and y > 200 and y < 230 then
-        Rules()
-    end
+-- end
 
-    if x > 100 and x < 150
-    and y > 180 and y < 200 then
-        PLAY()
-    end
+-- love.mousepressed = function (x, y)
 
-    if x > 100 and x < 150
-    and y > 220 and y < 250 then
-        END()
-    end
-end
+--     if x > 100 and x < 150
+--     and y > 200 and y < 230 then
+--         Rules()
+--     end
+
+--     if x > 100 and x < 150
+--     and y > 180 and y < 200 then
+--         PLAY()
+--     end
+
+--     if x > 100 and x < 150
+--     and y > 220 and y < 250 then
+--         END()
+--     end
+-- end
 
 
 Rules = function ()
@@ -127,6 +165,21 @@ end
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("Sorry you drew to high and lost", 100, 100)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
     end
 end
                     
@@ -134,12 +187,42 @@ end
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("The computer drew to high and you win", 100, 100)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
     end
 end
     if Sp == 21 and Dp ~= 21 then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("BLACKJACK!! Ultimate victory", 100, 100)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
     end
 end
                 
@@ -147,6 +230,21 @@ end
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("You lose", 100, 100)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
     end
 end
             
@@ -154,6 +252,21 @@ end
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("Both got blackjack and you drew", 100, 100)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
     end
 end
             
@@ -161,6 +274,21 @@ end
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("Equal game, no winner", 100, 100)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
     end
 end
 
@@ -168,22 +296,48 @@ end
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("you win", 100, 100)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
     end
-
+    end
 end
-
     if Sp < 21 and Dp > Sp then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("you lose", 100, 100)
-        love.graphics.print("back to menu?", 100, 50)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
+
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
+    end
 end
 
 end
 
 
-
-end
 
 END = function ()
 
