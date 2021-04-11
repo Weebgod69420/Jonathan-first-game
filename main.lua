@@ -1,3 +1,7 @@
+if love.keyboard.isDown("escape") == true then
+    love.event.quit()
+end
+
 Menu = function ()
 
     love.load = function ()
@@ -32,9 +36,6 @@ Menu = function ()
         end
     end
 
-    if love.keyboard.isDown("escape") == true then
-        love.event.quit()
-    end
 end
 
 Menu()
@@ -44,15 +45,31 @@ Rules = function ()
 
     love.draw = function ()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("it worked... sorta, hang in there pal", 100, 100)
-    end   
+        love.graphics.print("The objective of blackjack is to get as close to 21 as possible.", 100, 100)
+        love.graphics.print("Without ever going over 21, So be careful not to take to many cards.", 100, 120)
+        love.graphics.print("At the start you will get two cards and from there on you can", 100, 140)
+        love.graphics.print("choose for every new card if you want to draw it or not.", 100, 160)
+        love.graphics.print("back to menu?", 100, 200)
+        love.graphics.print("YES", 30, 300)
+        love.graphics.print("NO", 120, 300)
+        love.mousepressed = function (x,y)
+    
+            if x > 30 and x < 50
+            and y > 300 and y < 330 then
+            Menu()
+        end
 
+        if x > 120 and x < 150
+            and y > 300 and y < 330 then
+            END()
+        end
+    end
+    end
 end
 
 
 PLAY = function ()
-
-    love.math.random()
+    love.math.setRandomSeed(os.time());
 
     Sp = 0
     Dp = 0 
@@ -62,17 +79,15 @@ PLAY = function ()
     Sp = Sp + love.math.random()* 10 + 1
     Sp = Sp + love.math.random()* 10 + 1
 
-    print(math.random())
-
     love.draw = function ()
 
         love.graphics.setColor(1, 0, 0)
 
         love.graphics.print("The game will now start and players/dealer will both get two cards each", 100, 50)
 
-        love.graphics.print("Want another card?", 50, 100)
+        love.graphics.print("Want another card?", 400, 100)
 
-        love.graphics.print("You now have " .. Sp, 200, 100)
+        love.graphics.print("You now have " .. Sp, 50, 100)
 
         love.graphics.print("YES", 30, 300)
 
@@ -283,7 +298,7 @@ end
     end
     end
 end
-    if Sp < 21 and Dp > Sp then
+    if Sp < 21 and Dp > 21 then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("you lose", 100, 100)
