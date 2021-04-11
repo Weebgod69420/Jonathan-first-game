@@ -16,7 +16,6 @@ Song ()
 
 Menu = function ()
 
-
     love.load = function ()
         love.math.setRandomSeed(love.timer.getTime())
     end
@@ -36,7 +35,9 @@ Menu = function ()
 -- vart klickar spelaren
     
     love.mousepressed = function (x, y)
-    
+
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
         if x > 100 and x < 150
         and y > 200 and y < 230 then
             Rules()
@@ -52,11 +53,9 @@ Menu = function ()
             END()
         end
     end
-
 end
 
 Menu()
-
 
 Rules = function ()
 
@@ -85,10 +84,11 @@ Rules = function ()
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
-
 
 PLAY = function ()
 
@@ -133,6 +133,8 @@ PLAY = function ()
             and y > 300 and y < 330 then
             Endgame()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
 end
 
@@ -157,7 +159,6 @@ end
             love.graphics.print("NO", 120, 300)
     
         end
-    
             love.mousepressed = function (x,y)
     
                 if x > 30 and x < 50
@@ -169,6 +170,8 @@ end
                 and y > 300 and y < 330 then
                 Endgame()
             end
+            src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+            src1:play()
         end
 
     end
@@ -184,6 +187,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -195,6 +199,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
@@ -218,6 +224,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()    
     end
     end
 end
@@ -228,6 +236,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -239,6 +248,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
@@ -250,6 +261,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -261,6 +273,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
@@ -272,6 +286,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -283,6 +298,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
@@ -294,6 +311,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -305,6 +323,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
@@ -316,6 +336,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -327,6 +348,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
@@ -337,6 +360,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -348,6 +372,8 @@ end
             and y > 300 and y < 330 then
             END()
         end
+        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+        src1:play()
     end
     end
 end
