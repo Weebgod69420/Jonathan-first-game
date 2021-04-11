@@ -1,5 +1,6 @@
 
 
+
 love.load = function ()
     love.math.setRandomSeed(love.timer.getTime())
 end
@@ -34,23 +35,27 @@ end
 
 
 Rules = function ()
+
     love.draw = function ()
         love.graphics.print("it worked... sorta, hang in there pal", 100, 100)
     end   
+
+
+
 end
 
 
 PLAY = function ()
 
-    
+    love.math.random()
 
     Sp = 0
     Dp = 0 
 
-    Dp = Dp + math.floor(math.random() * 10) + 1;
-    Dp = Dp + math.floor(math.random() * 10) + 1;
-    Sp = Sp + math.floor(math.random() * 10) + 1;
-    Sp = Sp + math.floor(math.random() * 10) + 1;
+    Dp = Dp + love.math.random()* 10 + 1
+    Dp = Dp + love.math.random()* 10 + 1
+    Sp = Sp + love.math.random()* 10 + 1
+    Sp = Sp + love.math.random()* 10 + 1
 
     print(math.random())
 
@@ -86,8 +91,8 @@ end
         
         love.math.setRandomSeed(os.time());
 
-        Dp = Dp + math.floor(math.random() * 10) + 1;
-        Sp = Sp + math.floor(math.random() * 10) + 1;
+        Dp = Dp + love.math.random()* 10 + 1
+        Sp = Sp + love.math.random()* 10 + 1
 
         love.draw = function ()
     
