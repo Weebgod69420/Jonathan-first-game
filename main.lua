@@ -1,16 +1,8 @@
 
 
--- love.textinput = function (t)
---     text = text..t
--- end
-
--- love.keypressed = function (key)
---     if key == "backspace" then
---         text = text:sub(1, -2)
---     end
--- end
-
--- startskärm
+love.load = function ()
+    love.math.setRandomSeed(love.timer.getTime())
+end
 
 love.draw = function()
 
@@ -50,6 +42,8 @@ end
 
 PLAY = function ()
 
+    
+
     Sp = 0
     Dp = 0 
 
@@ -57,6 +51,8 @@ PLAY = function ()
     Dp = Dp + math.floor(math.random() * 10) + 1;
     Sp = Sp + math.floor(math.random() * 10) + 1;
     Sp = Sp + math.floor(math.random() * 10) + 1;
+
+    print(math.random())
 
     love.draw = function ()
 
@@ -84,8 +80,11 @@ PLAY = function ()
             Endgame()
         end
     end
+end
 
     Anothercard = function ()
+        
+        love.math.setRandomSeed(os.time());
 
         Dp = Dp + math.floor(math.random() * 10) + 1;
         Sp = Sp + math.floor(math.random() * 10) + 1;
@@ -118,13 +117,13 @@ PLAY = function ()
     end
 
     Endgame = function ()
-    if Sp < 21 then 
+    if Sp > 21 then 
     love.draw = function()
     love.graphics.print("Sorry you drew to high and lost")
     end
 end
                     
-    if Dp < 21 and Sp >= 21 then
+    if Dp > 21 and Sp < 21 then
     love.draw = function()
     love.graphics.print("The computer drew to high and you win")
     end
@@ -134,7 +133,7 @@ end
     love.graphics.print("BLACKJACK!! Ultimate victory")
     end
 end
-                end
+                
     if Dp == 21 and Dp ~= 21 then
     love.draw = function()
     love.graphics.print("You lose")
@@ -160,141 +159,3 @@ END = function ()
     love.event.quit()
 
 end
-
-
-
-
-
--- function Game()
-
---     love.draw = function ()
-
---         love.graphics.print("The game will now start and players/dealer will both get two cards each", 100, 50)
-   
---     end
-
--- -- spelar poäng/dator poäng
-
---     Sp = 0
---     Dp = 0 
-
---     Dp = Dp + math.floor(math.random() * 10) + 1;
---     Dp = Dp + math.floor(math.random() * 10) + 1;
---     Sp = Sp + math.floor(math.random() * 10) + 1;
---     Sp = Sp + math.floor(math.random() * 10) + 1;
-
-    
-
---     love.draw = function ()
-
---         love.graphics.print("Want another card?")
---         love.graphics.printf(text, 200 , 400, 420)
-  
---     end
-
---     love.textinput = function (t)
---         text = text..t
---     end
-
---     love.load = function ()
-
---         text = "Write here..."
-
---         if text ==  "Write here..." .. "yes" then
---             Anothercard()
---         end
-
---         if text == "Write here..." .. "no" then
---             Endresult()
---         end
-
---     end
-
---     function Endresult()
-
---         if Sp < 21 then 
---             love.draw = function()
---                 love.graphics.print("Sorry you drew to high and lost")
---         end
-        
---         if Dp < 21 and Sp >= 21 then
---             love.draw = function()
---                 love.graphics.print("The computer drew to high and you win")
---         end
---     end
-
---         if Sp == 21 and Dp ~= 21 then
---             love.draw = function()
---                 love.graphics.print("BLACKJACK!! Ultimate victory")
---         end
---     end
-
---         if Dp == 21 and Dp ~= 21 then
---             love.draw = function()
---                 love.graphics.print("You lose")
---         end
---     end
-
---         if Dp == 21 and Sp == 21 then
---             love.draw = function()
---                 love.graphics.print("Both got blackjack and you drew")
---         end
---     end
-
---         if Dp == Sp then
---             love.draw = function()
---                 love.graphics.print("Equal game, no winner")
---         end
---     end
---     end
-
--- function Anothercard ()
-
---     Dp = Dp + math.floor(math.random() * 10) + 1;
---     Sp = Sp + math.floor(math.random() * 10) + 1;
-
---     love.draw = function ()
---         love.graphics.print("Want another card?")
---         love.graphics.printf(text, 200 , 400, 420)
---     end
-
---     love.textinput = function (t)
---         text = text..t
---     end
-
---     love.load = function ()
-
---         text = "Write here..."
-
---         if text ==  "Write here..." .. "yes" then
---             Anothercard()
---         end
-
---         if text == "Write here..." .. "no" then
---             Endresult()
---         end
-
---     end
-
---     end
-
---     end
-
---     function Rules()
-
---         love.draw = function()
-
---             love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
-        
---             love.graphics.printf(text, 200 , 400, 420)
-        
---         end
-        
-
---     end
-
---     function End() 
-
---     end
--- end
-
