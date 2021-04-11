@@ -1,12 +1,11 @@
 
 
-
 love.load = function ()
     love.math.setRandomSeed(love.timer.getTime())
 end
 
 love.draw = function()
-
+    love.graphics.setColor(1, 0, 0)
     love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
     love.graphics.print("menu:", 100, 150)
     love.graphics.print("PLAY", 100, 180)
@@ -37,10 +36,9 @@ end
 Rules = function ()
 
     love.draw = function ()
+        love.graphics.setColor(1, 0, 0)
         love.graphics.print("it worked... sorta, hang in there pal", 100, 100)
     end   
-
-
 
 end
 
@@ -60,6 +58,8 @@ PLAY = function ()
     print(math.random())
 
     love.draw = function ()
+
+        love.graphics.setColor(1, 0, 0)
 
         love.graphics.print("The game will now start and players/dealer will both get two cards each", 100, 50)
 
@@ -95,6 +95,7 @@ end
         Sp = Sp + love.math.random()* 10 + 1
 
         love.draw = function ()
+            love.graphics.setColor(1, 0, 0)
     
             love.graphics.print("Want another card?", 100, 50)
     
@@ -124,38 +125,63 @@ end
     Endgame = function ()
     if Sp > 21 then 
     love.draw = function()
-    love.graphics.print("Sorry you drew to high and lost")
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("Sorry you drew to high and lost", 100, 100)
     end
 end
                     
     if Dp > 21 and Sp < 21 then
     love.draw = function()
-    love.graphics.print("The computer drew to high and you win")
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("The computer drew to high and you win", 100, 100)
     end
 end
     if Sp == 21 and Dp ~= 21 then
     love.draw = function()
-    love.graphics.print("BLACKJACK!! Ultimate victory")
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("BLACKJACK!! Ultimate victory", 100, 100)
     end
 end
                 
     if Dp == 21 and Dp ~= 21 then
     love.draw = function()
-    love.graphics.print("You lose")
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("You lose", 100, 100)
     end
 end
             
     if Dp == 21 and Sp == 21 then
     love.draw = function()
-    love.graphics.print("Both got blackjack and you drew")
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("Both got blackjack and you drew", 100, 100)
     end
 end
             
     if Dp == Sp then
     love.draw = function()
-    love.graphics.print("Equal game, no winner")
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("Equal game, no winner", 100, 100)
     end
 end
+
+    if Sp < 21 and Sp > Dp then
+    love.draw = function()
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("you win", 100, 100)
+    end
+
+end
+
+    if Sp < 21 and Dp > Sp then
+    love.draw = function()
+        love.graphics.setColor(1, 0, 0)
+        love.graphics.print("you lose", 100, 100)
+        love.graphics.print("back to menu?", 100, 50)
+end
+
+end
+
+
 
 end
 
