@@ -1,6 +1,3 @@
-
-
-
 Menu = function ()
 
     love.load = function ()
@@ -34,41 +31,13 @@ Menu = function ()
             END()
         end
     end
+
+    if love.keyboard.isDown("escape") == true then
+        love.event.quit()
+    end
 end
 
 Menu()
-
--- love.load = function ()
---     love.math.setRandomSeed(love.timer.getTime())
--- end
-
--- love.draw = function()
---     love.graphics.setColor(1, 0, 0)
---     love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
---     love.graphics.print("menu:", 100, 150)
---     love.graphics.print("PLAY", 100, 180)
---     love.graphics.print("RULES", 100, 200)
---     love.graphics.print("END", 100, 220)
-
--- end
-
--- love.mousepressed = function (x, y)
-
---     if x > 100 and x < 150
---     and y > 200 and y < 230 then
---         Rules()
---     end
-
---     if x > 100 and x < 150
---     and y > 180 and y < 200 then
---         PLAY()
---     end
-
---     if x > 100 and x < 150
---     and y > 220 and y < 250 then
---         END()
---     end
--- end
 
 
 Rules = function ()
@@ -190,6 +159,7 @@ end
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
