@@ -2,12 +2,15 @@ if love.keyboard.isDown("escape") == true then
     love.event.quit()
 end
 
-
+-- meny funktionen
 
 Menu = function ()
-    src1 = love.audio.newSource("Fluffing duck.mp3", "stream")
+
+-- meny låt
+
+    src1 = love.audio.newSource("sound files/Fluffing duck.mp3", "stream")
     src1:stop()
-    src1 = love.audio.newSource("Fluffing duck.mp3", "stream")
+    src1 = love.audio.newSource("sound files/Fluffing duck.mp3", "stream")
     scr1Loop = src1:setLooping(true)
     src1:play()
 
@@ -15,6 +18,8 @@ Menu = function ()
         love.math.setRandomSeed(love.timer.getTime())
     end
     
+-- meny valen
+
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
         love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
@@ -24,6 +29,8 @@ Menu = function ()
         love.graphics.print("END", 100, 220)
     
     end
+
+-- vart klickar spelaren
     
     love.mousepressed = function (x, y)
     
@@ -49,12 +56,8 @@ Menu()
 
 
 Rules = function ()
-    src1:stop()
-    src1 = love.audio.newSource("Monkeys.mp3", "stream")
-    src1:stop()
-    src1 = love.audio.newSource("Monkeys.mp3", "stream")
-    scr1Loop = src1:setLooping(true)
-    src1:play()
+
+-- Regler
 
     love.draw = function ()
         love.graphics.setColor(1, 0, 0)
@@ -65,6 +68,9 @@ Rules = function ()
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
+
+-- Tillbaks till menyn
+
         love.mousepressed = function (x,y)
     
             if x > 30 and x < 50
@@ -82,6 +88,9 @@ end
 
 
 PLAY = function ()
+
+-- Spelar poäng/dator poäng
+
     love.math.setRandomSeed(os.time());
 
     Sp = 0
@@ -108,6 +117,8 @@ PLAY = function ()
 
     end
 
+-- ett till kort/inga fler kort
+
         love.mousepressed = function (x,y)
 
             if x > 30 and x < 50
@@ -121,6 +132,8 @@ PLAY = function ()
         end
     end
 end
+
+-- ett till krot funktionen
 
     Anothercard = function ()
         
@@ -157,12 +170,9 @@ end
 
     end
 
-    Endgame = function ()
-    src1 = love.audio.newSource("Hitman.mp3", "stream")
-    src1:stop()
-    src1 = love.audio.newSource("Hitman.mp3", "stream")
-    scr1Loop = src1:setLooping(true)
-    src1:play()
+-- inga fler kort funktionen
+
+    Endgame = function () 
 
     if Sp > 21 then 
     love.draw = function()
