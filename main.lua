@@ -2,17 +2,20 @@ if love.keyboard.isDown("escape") == true then
     love.event.quit()
 end
 
+-- låt
+
+Song = function ()
+    src1 = love.audio.newSource("sound files/Fluffing duck.mp3", "stream")
+    scr1Loop = src1:setLooping(true)
+    src1:play()
+end
+
+Song ()
+
 -- meny funktionen
 
 Menu = function ()
 
--- meny låt
-
-    src1 = love.audio.newSource("sound files/Fluffing duck.mp3", "stream")
-    src1:stop()
-    src1 = love.audio.newSource("sound files/Fluffing duck.mp3", "stream")
-    scr1Loop = src1:setLooping(true)
-    src1:play()
 
     love.load = function ()
         love.math.setRandomSeed(love.timer.getTime())
@@ -96,10 +99,10 @@ PLAY = function ()
     Sp = 0
     Dp = 0 
 
-    Dp = Dp + love.math.random()* 10 + 1
-    Dp = Dp + love.math.random()* 10 + 1
-    Sp = Sp + love.math.random()* 10 + 1
-    Sp = Sp + love.math.random()* 10 + 1
+    Dp = Dp + love.math.random(1, 11)
+    Dp = Dp + love.math.random(1, 11)
+    Sp = Sp + love.math.random(1, 11)
+    Sp = Sp + love.math.random(1, 11)
 
     love.draw = function ()
 
@@ -139,8 +142,8 @@ end
         
         love.math.setRandomSeed(os.time());
 
-        Dp = Dp + love.math.random()* 10 + 1
-        Sp = Sp + love.math.random()* 10 + 1
+        Dp = Dp + love.math.random(1, 11)
+        Sp = Sp + love.math.random(1, 11)
 
         love.draw = function ()
             love.graphics.setColor(1, 0, 0)
@@ -348,10 +351,7 @@ end
     end
     end
 end
-
 end
-
-
 
 END = function ()
 
