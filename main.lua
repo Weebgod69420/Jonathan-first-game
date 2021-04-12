@@ -14,13 +14,15 @@ Song ()
 
 -- meny funktionen
 
-Menu = function ()
+Menu = function () 
+
+-- gör pseudo random tal mer random
 
     love.load = function ()
         love.math.setRandomSeed(love.timer.getTime())
     end
 
-    -- hover function
+-- hover function
 
     love.mousemoved = function (x, y)
 
@@ -50,12 +52,11 @@ Menu = function ()
 
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
         love.graphics.print("menu:", 100, 150)
         love.graphics.print("PLAY", 100, 180)
         love.graphics.print("RULES", 100, 200)
-        love.graphics.print("END", 100, 220)
-
+        love.graphics.print("END", 100, 220) 
+        love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100)
 
         if PlayHovering == true then
             love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
