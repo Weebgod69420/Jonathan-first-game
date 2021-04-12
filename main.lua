@@ -19,6 +19,32 @@ Menu = function ()
     love.load = function ()
         love.math.setRandomSeed(love.timer.getTime())
     end
+
+    -- hover function
+
+    love.mousemoved = function (x, y)
+
+        if x > 100 and x < 150 and
+           y > 180 and y < 200 then
+            PlayHovering = true;
+        else
+            PlayHovering = false;
+        end
+
+        if x > 100 and x < 130 and
+           y > 200 and y < 225 then
+            RulesHovering = true;
+        else
+            RulesHovering = false;
+        end
+
+        if x > 100 and x < 130 and
+           y > 225 and y < 250 then
+            EndHovering = true;
+        else
+            EndHovering = false;
+        end
+    end
     
 -- meny valen
 
@@ -29,8 +55,40 @@ Menu = function ()
         love.graphics.print("PLAY", 100, 180)
         love.graphics.print("RULES", 100, 200)
         love.graphics.print("END", 100, 220)
+
+
+        if PlayHovering == true then
+            love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
+            love.graphics.print("menu:", 100, 150)
+            love.graphics.setColor(0, 1, 0)  
+            love.graphics.print("PLAY", 100, 180)
+            love.graphics.print("RULES", 100, 200)
+            love.graphics.print("END", 100, 220)
+                 
+        end
     
-    end
+        if RulesHovering == true then
+            love.graphics.setColor(1, 0, 0)
+            love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
+            love.graphics.print("menu:", 100, 150)
+            love.graphics.print("PLAY", 100, 180)
+            love.graphics.setColor(0, 1, 0)
+            love.graphics.print("RULES", 100, 200)
+            love.graphics.print("END", 100, 220)
+        end
+
+        if EndHovering == true then   
+            love.graphics.setColor(1, 0, 0)
+            love.graphics.print("WELCOME TO BLACKJACK!!", 100, 100) 
+            love.graphics.print("menu:", 100, 150)
+            love.graphics.print("PLAY", 100, 180)
+            love.graphics.print("RULES", 100, 200)
+            love.graphics.setColor(0, 1, 0)
+            love.graphics.print("END", 100, 220)      
+                              
+        end
+     
+end
 
 -- vart klickar spelaren
     
@@ -183,7 +241,7 @@ end
     if Sp > 21 then 
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("Sorry you drew to high and lost", 100, 100)
+        love.graphics.print("Sorry you drew to high and lost, dealer had " .. Dp, 100, 100)
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
@@ -208,7 +266,7 @@ end
     if Dp > 21 and Sp < 21 then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("The computer drew to high and you win", 100, 100)
+        love.graphics.print("The computer drew to high and you win, dealer had " .. Dp, 100, 100)
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
@@ -232,7 +290,7 @@ end
     if Sp == 21 and Dp ~= 21 then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("BLACKJACK!! Ultimate victory", 100, 100)
+        love.graphics.print("BLACKJACK!! Ultimate victory, dealer had " .. Dp, 100, 100)
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
@@ -257,7 +315,7 @@ end
     if Dp == 21 and Dp ~= 21 then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("You lose", 100, 100)
+        love.graphics.print("You lose, dealer had " .. Dp, 100, 100)
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
@@ -282,7 +340,7 @@ end
     if Dp == 21 and Sp == 21 then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("Both got blackjack and you drew", 100, 100)
+        love.graphics.print("Both got blackjack and you drew, dealer had " .. Dp, 100, 100)
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
@@ -307,7 +365,7 @@ end
     if Dp == Sp then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("Equal game, no winner", 100, 100)
+        love.graphics.print("Equal game, no winner, both had" .. Dp, 100, 100)
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
@@ -332,7 +390,7 @@ end
     if Sp < 21 and Sp > Dp then
     love.draw = function()
         love.graphics.setColor(1, 0, 0)
-        love.graphics.print("you win", 100, 100)
+        love.graphics.print("you win, dealer had " .. Dp, 100, 100)
         love.graphics.print("back to menu?", 100, 200)
         love.graphics.print("YES", 30, 300)
         love.graphics.print("NO", 120, 300)
@@ -353,30 +411,31 @@ end
     end
     end
 end
-    if Sp < 21 and Dp > 21 then
-    love.draw = function()
-        love.graphics.setColor(1, 0, 0)
-        love.graphics.print("you lose", 100, 100)
-        love.graphics.print("back to menu?", 100, 200)
-        love.graphics.print("YES", 30, 300)
-        love.graphics.print("NO", 120, 300)
 
-        love.mousepressed = function (x,y)
-    
-            if x > 30 and x < 50
-            and y > 300 and y < 330 then
-            Menu()
-        end
+    if Sp < 21 and Dp > Sp then
+        love.draw = function()
+            love.graphics.setColor(1, 0, 0)
+            love.graphics.print("you lose, dealer had " .. Dp, 100, 100)
+            love.graphics.print("back to menu?", 100, 200)
+            love.graphics.print("YES", 30, 300)
+            love.graphics.print("NO", 120, 300)
 
-        if x > 120 and x < 150
-            and y > 300 and y < 330 then
-            END()
+            love.mousepressed = function (x,y)
+        
+                if x > 30 and x < 50
+                and y > 300 and y < 330 then
+                Menu()
+            end
+
+            if x > 120 and x < 150
+                and y > 300 and y < 330 then
+                END()
+            end
+            src1 = love.audio.newSource("sound files/jump.mp3", "stream")
+            src1:play()
         end
-        src1 = love.audio.newSource("sound files/jump.mp3", "stream")
-        src1:play()
+        end
     end
-    end
-end
 end
 
 END = function ()
